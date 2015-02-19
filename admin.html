@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Majestic Admin</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+
+  <div class="header">
+    <div class="header-container">
+      <p class="header-title">Majestic Thai</p>
+      <p class="header-subtitle"></p>
+    </div>
+  </div>
+
+  <div class="pagebody">
+    <div class="form-container">
+
+      <form id="item-info">
+        <div class="item">
+          <div class="add-item-title">
+            <label>Item Title</label>
+            <input type="text" class="itemTitleInput"/>
+          </div>
+          <div class="add-item-description">
+            <label>Item Description</label>
+            <input type="text" class="itemDescriptionInput" />
+          </div>
+          <div class="add-item-price">
+            <label for="email">Item Price ($)</label>
+            <input name="email" type="text" class="itemPriceInput"/>
+          </div>
+          <div class="add-item-category">
+            <label>Item Category</label>
+            <input type="text" class="itemCategoryInput"/>
+          </div>
+          <div class="form-button">
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

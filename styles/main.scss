@@ -1,0 +1,194 @@
+@import 'bourbon/bourbon';
+$visual-grid:false;
+@import 'neat/neat';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+}
+
+.header {
+  width: 100%;
+  height: 75px;
+  background: #252525;
+  border-bottom: 1px solid #333;
+}
+
+.header-title {
+  color:#f0f0f0;
+  font-family:sans-serif;
+  font-size: 80px;
+  margin:0;
+  text-transform:uppercase;
+  font-weight:lighter;
+}
+
+.header-container {
+  width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.pagebody {
+  width:1080px;
+  margin:0 auto;
+  margin-top:50px;
+
+}
+
+.menu {
+  display:inline-block;
+  vertical-align:top;
+  width:750px;
+  min-height:100px;
+  background:#fff;
+  border:1px solid #dfdfdf;
+  padding-top:50px;
+  padding-bottom:50px;
+
+}
+
+.menu ul {
+  list-style:none;
+  font-size:0;
+}
+
+.menu ul li {
+  display:inline-block;
+  vertical-align:top;
+  font-family:sans-serif;
+  font-size:14px;
+  border-bottom:1px solid #dfdfdf;
+  padding-bottom:10px;
+  padding-top:10px;
+  height:50px;
+}
+
+.item-title {
+  width:150px;
+  text-align:right;
+  font-weight:bold;
+}
+
+.item-description {
+  width:400px;
+  text-align:center;
+  font-style:italic;
+}
+
+.item-price {
+  width:150px;
+  text-align:left;
+}
+
+.item-price button {
+  width:50px;
+  height:20px;
+  border-radius:3px;
+  color:#fff;
+  background:blue;
+  border:0;
+  outline:0;
+  margin-top:-20px;
+
+}
+
+.cart {
+  display:inline-block;
+  vertical-align:top;
+  width:300px;
+  min-height:100px;
+  margin:0 auto;
+  border:1px solid #dfdfdf;
+  margin-left:15px;
+  background:#fff;
+}
+
+
+
+
+/* FORM */
+
+.form-container {
+  @include outer-container(960px);
+  padding-bottom:100px;
+}
+
+.item {
+  @include span-columns (4);
+  @include shift (4);
+
+  margin-top: 0px;
+  background: #f6f4ef;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #dfdfdf;
+  vertical-align:top;
+}
+
+select,
+input,
+textarea {
+  @include appearance(none);
+  border: 0;
+  background-color: #FFF;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.add-item-title input,
+.add-item-description input,
+.add-item-category input,
+.add-item-price input {
+  transition: 1000ms;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  font-size: 16px;
+
+  &:focus {
+    border: 1px solid #000;
+  }
+}
+
+.add-item-title label,
+.add-item-description label,
+.add-item-category label,
+.add-item-price label {
+  display: block;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #000;
+  font-weight: 300;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom:5px;
+}
+
+button {
+  height: 45px;
+  width: 100%;
+  background: #6483c8;
+  border-radius:3px;
+  border:1px solid #dfdfdf;
+  text-align: center;
+  margin-top: 30px;
+  padding-top:7px;
+  transition:500ms;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #FFF;
+  font-weight: 400;
+  text-decoration:none;
+  transition:500ms;
+}
