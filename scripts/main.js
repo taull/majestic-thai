@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // Input Items Form
 
 (function(){
@@ -5,20 +12,21 @@
   var Post = Backbone.Model.extend({
     idAttribute: 'objectId',
     defaults: function(options) {
-      var options = options || {};
+      // var options = options || {};
       return _.defaults({
         'item_title': 'Invalid Item',
         'item_description': 'N/A',
         'item_price': 'N/A',
         'item_category': 'N/A'
-
       });
     }
   });
 
   var Posts = Backbone.Collection.extend({
     model: Post,
-    url: "https://api.parse.com/1/classes/Menu_items"
+    url: "https://api.parse.com/1/classes/Menu_items",
+    // parse: function(response) { return response.results; }
+
   });
 
   var PostNewView = Backbone.View.extend({
@@ -38,14 +46,14 @@
       this.$('.itemDescriptionInput').val('');
       this.$('.itemPriceInput').val('');
       this.$('.itemCategoryInput').val('');
-
-
     }
   });
+
 
   //----------------
   // Configuration
   //----------------
+
 
   $.ajaxSetup({
     headers: {
@@ -56,5 +64,7 @@
 
   var posts = new Posts();
   var postNew = new PostNewView({collection: posts});
+
+
 
 })();
