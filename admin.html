@@ -4,58 +4,86 @@
   <meta charset="UTF-8">
   <title>Majestic Admin</title>
   <link rel="stylesheet" href="styles/main.css">
-</head>
+
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+
 <body>
 
+  <div class="admin-header">
+    <div class="admin-header-container">
 
-  <div class="header">
-    <div class="header-container">
-      <p class="header-title">Majestic Thai</p>
-      <div class="header-image"></div>
+      <label for="sidebartoggler" class="toggle">
+        <span class="fontawesome-cog toggleicon"></span>
+        <p class="toggletext">Click for Admin Panel</p>
+      </label>
+<!--       <p class="header-title">Majestic Thai</p>
+<div class="header-image"></div> -->
     </div>
   </div>
 
-  <div class="pagebody">
 
-<!--     <div class="menu">
-  <div class="menu-heading">
-    <p>Appetizers</p>
+  <input type="checkbox" id="sidebartoggler" name="" value="">
+
+  <div class="page-wrap">
+
+<!--     <label for="sidebartoggler" class="toggle"><span class="fontawesome-shopping-cart"></span></label>
+ -->
+    <div class="sidebar">
+
+      <ul class="sidebar-menu">
+        <div class="post-input">
+          <div class="post-input-container">
+
+            <div class="form-text">
+              <p class="header-title">Majestic Thai</p>
+              <div class="header-image"></div>
+              <h3>Welcome to the Majestic Thai Admin</h3>
+              <p class="form-description">If you would like to add to the menu, please fill out the form on the right.</p>
+              <p class="disclaimer"></p>
+            </div>
+
+            <form id="item-info">
+              <div class="item">
+                <div class="add-item-title">
+                  <label>Item Title</label>
+                  <input type="text" class="itemTitleInput"/>
+                </div>
+                <div class="add-item-description">
+                  <label>Item Description</label>
+                  <input type="text" class="itemDescriptionInput" />
+                </div>
+                <div class="add-item-price">
+                  <label for="email">Item Price ($)</label>
+                  <input name="email" type="text" class="itemPriceInput"/>
+                </div>
+                <div class="add-item-category">
+                  <label>Item Category</label>
+                  <select class="itemCategoryInput">
+                    <option value="Starters">Starters</option>
+                    <option value="Main Dish">Main Dish</option>
+                  </select>
+                </div>
+                <div class="form-button">
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>      </ul>
+
+    </div>
+
   </div>
-  <div class="sideBar"></div>
-  <script type="text/template" data-template-name="post-li">
-    <ul>
-      <li class="item-price post-li">\$<%= item_price %></li>
-      <li class="item-title post-li"><%= item_title %></li>
-      <li class="item-description post-li"><%= item_description %></li>
-      <li class="item-button post-li"><button>Add</button></li>
-    </ul>
-  </script>
-</div>
-<div class="cart">
-  <ul>
-    <li class="cart-item-title"></li>
-    <li class="cart-item-description"></li>
-    <li class="cart-item-price"></li>
-  </ul>
-</div> -->
 
+  <!-- <div class="post-input">
+    <div class="post-input-container">
 
-
-    <div class="form-container">
-
-      <div class="menu">
-        <div class="menu-heading">
-          <p>Appetizers</p>
-        </div>
-        <div class="sideBar"></div>
-        <script type="text/template" data-template-name="post-li">
-          <ul>
-            <li class="item-price post-li">$<%= item_price %></li>
-            <li class="item-title post-li"><%= item_title %></li>
-            <li class="item-description post-li"><%= item_description %></li>
-            <li class="item-button post-li"><button>Add</button></li>
-          </ul>
-        </script>
+      <div class="form-text">
+        <p class="header-title">Majestic Thai</p>
+        <div class="header-image"></div>
+        <h3>Welcome to the Majestic Thai Admin</h3>
+        <p class="form-description">If you would like to add to the menu, please fill out the form on the right.</p>
+        <p class="disclaimer"></p>
       </div>
 
       <form id="item-info">
@@ -69,12 +97,15 @@
             <input type="text" class="itemDescriptionInput" />
           </div>
           <div class="add-item-price">
-            <label for="email">Item Price ($)</label>
+            <label for="email">Item Price (\$)</label>
             <input name="email" type="text" class="itemPriceInput"/>
           </div>
           <div class="add-item-category">
             <label>Item Category</label>
-            <input type="text" class="itemCategoryInput"/>
+            <select class="itemCategoryInput">
+              <option value="Starters">Starters</option>
+              <option value="Main Dish">Main Dish</option>
+            </select>
           </div>
           <div class="form-button">
             <button type="submit">Submit</button>
@@ -82,7 +113,43 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
+
+
+
+
+      <div class="pagebody">
+
+          <div class="menu">
+            <div class="menu-heading">
+              <p>Starters</p>
+            </div>
+            <div class="sideBar"></div>
+            <script type="text/template" data-template-name="item-list">
+              <ul>
+                <li class="item-price item-list">$<%= item_price %></li>
+                <li class="item-title item-list"><%= item_title %></li>
+                <li class="item-description item-1ist"><%= item_description %></li>
+                <li class="item-button item-list"><button>Add to Checkout</button></li>
+              </ul>
+            </script>
+            <div class="menu-heading">
+              <p>Main Dish</p>
+            </div>
+            <div class="sideBar"></div>
+            <script type="text/template" data-template-name="item-list">
+              <ul>
+                <li class="item-price item-list">$<%= item_price %></li>
+                <li class="item-title item-list"><%= item_title %></li>
+                <li class="item-description item-1ist"><%= item_description %></li>
+                <li class="item-button item-list"><button>Add to Checkout</button></li>
+              </ul>
+            </script>
+        </div>
+      </div>
+
+
+
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
@@ -90,6 +157,8 @@
 
   <script src="scripts/main.js"></script>
   <script src="scripts/post.js"></script>
+  <script src="scripts/tabs.js"></script>
+
 
 </body>
 </html>

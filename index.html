@@ -7,17 +7,70 @@
 </head>
 <body>
 
-  <div class="header">
-    <div class="header-container">
-      <p class="header-title">Majestic Thai</p>
-      <div class="header-image"></div>
+  <div class="admin-header">
+    <div class="admin-header-container">
+
+      <label for="checkouttoggler" class="toggle">
+        <span class="fontawesome-shopping-cart toggleicon"></span>
+        <p class="toggletext">Checkout Here</p>
+      </label>
+      <!--       <p class="header-title">Majestic Thai</p>
+      <div class="header-image"></div> -->
     </div>
   </div>
 
+  <input type="checkbox" id="checkouttoggler" name="" value="">
 
 
+  <div class="page-wrap">
+    <div class="checkout">
+
+    <ul class="checkout-menu">
+      <div class="checkout-input">
+        <div class="checkout-input-container">
+
+            <ul>
+              <li class="checkout-item-title">Duck Curry</li>
+              <li class="checkout-item-price">$20</li>
+            </ul>
+
+        </div>
+      </div>
+    </ul>
+
+    </div>
+  </div>
 
   <div class="pagebody">
+
+    <div class="menu">
+      <div class="menu-heading">
+        <p>Starters</p>
+      </div>
+      <div class="sideBar"></div>
+      <script type="text/template" data-template-name="item-list">
+        <ul>
+          <li class="item-price item-list">$<%= item_price %></li>
+          <li class="item-title item-list"><%= item_title %></li>
+          <li class="item-description item-1ist"><%= item_description %></li>
+          <li class="item-button item-list"><button>Add to Checkout</button></li>
+        </ul>
+      </script>
+      <div class="menu-heading">
+        <p>Main Dish</p>
+      </div>
+      <div class="sideBar"></div>
+      <script type="text/template" data-template-name="item-list">
+        <ul>
+          <li class="item-price item-list">$<%= item_price %></li>
+          <li class="item-title item-list"><%= item_title %></li>
+          <li class="item-description item-1ist"><%= item_description %></li>
+          <li class="item-button item-list"><button>Add to Checkout</button></li>
+        </ul>
+      </script>
+    </div>
+  </div>
+  <!-- <div class="pagebody">
     <div class="menu">
       <div class="menu-heading">
         <p>Appetizers</p>
@@ -25,7 +78,7 @@
       <div class="sideBar"></div>
       <script type="text/template" data-template-name="post-li">
         <ul>
-          <li class="item-price post-li">$<%= item_price %></li>
+          <li class="item-price post-li">\$<%= item_price %></li>
           <li class="item-title post-li"><%= item_title %></li>
           <li class="item-description post-li"><%= item_description %></li>
           <li class="item-button post-li"><button>Add</button></li>
@@ -39,13 +92,15 @@
         <li class="cart-item-price"></li>
       </ul>
     </div>
-  </div>
+  </div> -->
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/backbone/backbone.js"></script>
 
   <script src="scripts/post.js"></script>
+  <script src="scripts/tabs.js"></script>
+
 
 </body>
 </html>

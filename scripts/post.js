@@ -4,7 +4,7 @@
 // MODEL
 //-----------
 
-var Post = Backbone.Model.extend({
+var Item = Backbone.Model.extend({
   idAttribute: 'objectId',
   defaults: function(options) {
     options = options || {};
@@ -19,8 +19,12 @@ var Post = Backbone.Model.extend({
 });
 
 
-var Posts = Backbone.Collection.extend({
-  model: Post,
+// if($('.itemCategoryInput' === 'item_category').val)({
+//
+// });
+
+var Items = Backbone.Collection.extend({
+  model: Item,
   url: "https://api.parse.com/1/classes/Menu_items",
   parse: function(response) { return response.results; }
 });
@@ -30,18 +34,13 @@ var Posts = Backbone.Collection.extend({
 // VIEWS
 //------------
 
-var PostListView = Backbone.View.extend ({
+var ItemListView = Backbone.View.extend ({
 
     el: '.sideBar',
-    template: _.template($('[data-template-name="post-li"]').text()),
-
-  //  render: function(){
-  //    this.$el.html(this.template());
-  //    return this;
-  //  },
+    template: _.template($('[data-template-name="item-list"]').text()),
 
    events: {
-     'click .post-li': 'showFullPost'
+     'click .item-list': 'showFullItem'
    },
 
    showFullPost: function() {
@@ -49,18 +48,39 @@ var PostListView = Backbone.View.extend ({
 
    render: function() {
      var that = this;
-     this.collection.each(function(post) {
-       that.$el.append( that.template( post.toJSON() ) );
+     this.collection.each(function(item) {
+       that.$el.append( that.template( item.toJSON() ) );
      });
      return this;
    }
 });
 
+// var PostAppetizerView = Backbone.View.extend ({
+//
+//   el: '.sideBar',
+//   template: _.template($('[data-template-name="post-li"]').text()),
+//
+//   events: {
+//     'click .post-li': 'showFullPost'
+//   },
+//
+//   showFullPost: function() {
+//   },
+//
+//   render: function() {
+//     var that = this;
+//     this.collection.each(function(post) {
+//       that.$el.append( that.template( post.toJSON() ) );
+//     });
+//     return this;
+//   }
+// });
 
-var PostFullView = Backbone.View.extend({
+
+var ItemFullView = Backbone.View.extend({
   tagName: 'div',
-  className: 'showPost',
-  template: _.template($('[data-template-name="showPost"]').text()),
+  className: 'showItem',
+  template: _.template($('[data-template-name="item-list"]').text()),
   render: function() {
     this.$el.append(this.template(this.model.toJSON()));
     return this;
@@ -76,33 +96,33 @@ var PostFullView = Backbone.View.extend({
   var AppRouter = Backbone.Router.extend ({
     routes: {
       '': 'index',
-      'showPost/:id': 'showPost'
+      'showItem/:id': 'showItem'
     },
 
     initialize: function() {
-      this.posts = new Posts();
-      this.postsList = new PostListView({collection: this.posts});
+      this.items = new Items();
+      this.itemsList = new ItemListView({collection: this.items});
     },
 
     index: function(){
       // var template= _.template($('data-template-name=post-li').text());
       // $('#sideBar').html(template());
       var that = this;
-      this.posts.fetch().done(function() {
-        that.postsList.render();
+      this.items.fetch().done(function() {
+        that.itemsList.render();
       });
     },
 
 
-    showPost: function(id){
+    showItem: function(id){
       // var template= _.template($('data-template-name=showPost').text());
       // $('#post-li').html(template());
       var that = this;
-      this.posts.fetch().done(function() {
-        foundModel = that.posts.get(id);
-        var postFull = new PostFullView({model: foundModel});
-        postFull.render();
-        $('.full-post').html(postFull.el);
+      this.items.fetch().done(function() {
+        foundModel = that.items.get(id);
+        var itemFull = new ItemFullView({model: foundModel});
+        itemFull.render();
+        $('.full-post').html(itemFull.el);
       });
     }
   });

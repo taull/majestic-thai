@@ -9,7 +9,7 @@
 
 (function(){
 
-  var Post = Backbone.Model.extend({
+  var Item = Backbone.Model.extend({
     idAttribute: 'objectId',
     defaults: function(options) {
       // var options = options || {};
@@ -22,14 +22,44 @@
     }
   });
 
-  var Posts = Backbone.Collection.extend({
-    model: Post,
+
+  // var Order = Backbone.Model.extend({
+  //   // define defaults as a function, otherwise the items array will be shared
+  //   // among all orders. See http://backbonejs.org/#Model-defaults
+  //   defaults: function(attributes){
+  //     attributes = attributes || {};
+  //     return _.defaults(attributes, {
+  //       items: []
+  //     });
+  //   },
+  //
+  //   addItem: function(menuItem){
+  //     // 1. use item.toJSON since we need to turn a model into an object that
+  //     //    looks like {name: "Cool Food", price: 100}
+  //     // 2. use set + concat because, if you were to just modify items in place
+  //     //    (e.g. using .push) it wouldn't fire a change event. .concat takes an
+  //     //    array and returns a new array of the two arrays combined, so it will
+  //     //    fire a change event.
+  //     this.set('menuItems', this.get('menuItems').concat([menuItem.toJSON()]));
+  //   },
+  //
+  //   totalPrice: function(){
+  //     return this.get('menuItems').reduce(function(acum, item) {
+  //       return acum + item.price;
+  //     }, 0);
+  //   }
+  // });
+
+
+
+  var Items = Backbone.Collection.extend({
+    model: Item,
     url: "https://api.parse.com/1/classes/Menu_items",
     // parse: function(response) { return response.results; }
 
   });
 
-  var PostNewView = Backbone.View.extend({
+  var ItemNewView = Backbone.View.extend({
     el: '#item-info',
     events: {
       'submit' : 'itemInfo'
@@ -47,6 +77,8 @@
       this.$('.itemPriceInput').val('');
       this.$('.itemCategoryInput').val('');
     }
+
+
   });
 
 
@@ -62,8 +94,8 @@
     }
   });
 
-  var posts = new Posts();
-  var postNew = new PostNewView({collection: posts});
+  var items = new Items();
+  var itemNew = new ItemNewView({collection: items});
 
 
 
